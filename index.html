@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOT CLINICS - Premier Skin, Hair & Aesthetic Care in Multan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 2px 10px rgba(255,255,255,0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 180px 2rem 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,101.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.3;
+            animation: wave 15s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 2rem;
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 2rem;
+            background: white;
+        }
+
+        .services-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .service-card ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            color: #555;
+        }
+
+        .service-card li {
+            margin: 0.5rem 0;
+        }
+
+        /* Treatments Section */
+        .treatments {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .treatments-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .treatments h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .treatments-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .treatment-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .treatment-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .treatment-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 100px 2rem;
+            background: #f8f9fa;
+        }
+
+        .why-choose-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-choose h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            color: #555;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item-icon {
+            font-size: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .services-grid,
+            .treatments-list,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">DOT CLINICS</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#treatments">Treatments</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to DOT CLINICS</h1>
+            <p>Premier Skin Care, Hair Restoration & Aesthetic Excellence in Multan, Pakistan</p>
+            <a href="#contact" class="cta-button">Book Your Consultation</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>About DOT CLINICS</h2>
+            <p>DOT CLINICS stands as a beacon of excellence in skin care, hair restoration, aesthetic enhancements, and innovative hair transplant solutions. Whether you're looking to revitalize your skin, achieve luscious locks, or transform through advanced aesthetic procedures, DOT CLINICS is the answer.</p>
+            <p>We have Multan's top best board-certified skin specialists and aesthetic physicians with years of practical professional experience, dedicated to providing you with world-class treatments and personalized care.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="services-content">
+            <h2>Our Specialized Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Hair Transplant (FUE)</h3>
+                    <p>Restore hair on bald areas using advanced FUE technique (Follicular Unit Extraction). Follicles are taken from the back of the head and placed on the front, bald areas, beard, mustache, and eyebrows.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Skin Whitening</h3>
+                    <p>Glutathione injections used with Vitamin C for complete body whitening and skin brightening. Safe and effective treatments for achieving a radiant complexion.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Acne & Scar Treatment</h3>
+                    <p>Comprehensive acne scar treatment using customized PRP, threads, and advanced medications tailored to your skin type.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Pigmentation Treatment</h3>
+                    <p>Effective treatment for dark spots, melasma, and freckles caused by sun exposure or steroid-based creams. Restore your natural skin tone.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Hair Fall & Alopecia</h3>
+                    <p>Advanced treatments for alopecia caused by genetics, hormonal changes, medical conditions, or medications. Hair PRP is the best way to stop hair fall and regrow hair.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Dark Circles Treatment</h3>
+                    <p>Treat dark circles caused by fatigue, lack of sleep, genes, dehydration, sun exposure, and allergies with our specialized treatments.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Moles, Warts & Skin Tags</h3>
+                    <p>Safe removal of moles, warts (caused by HPV), and skin tags using advanced techniques.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Open Pores Treatment</h3>
+                    <p>Minimize open pores caused by sun exposure, genetics, age, hormonal changes, smoking, and poor diet.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Stretch Marks</h3>
+                    <p>Effective treatments for stretch marks caused by pregnancy, weight changes, genetics, and hormonal changes.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Erectile Dysfunction</h3>
+                    <p>Most advanced ED treatments using shockwave therapy, stem cells, P-Shot, and other innovative therapies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="treatments" class="treatments">
+        <div class="treatments-content">
+            <h2>Advanced Treatment Options</h2>
+            <div class="treatments-list">
+                <div class="treatment-item">
+                    <h3>Hair PRP</h3>
+                    <p>Stop hair fall, regrow follicles, and increase thickness</p>
+                </div>
+                <div class="treatment-item">
+                    <h3>Face PRP</h3>
+                    <p>For acne scars, pigmentation, and dark circles</p>
+                </div>
+                <div class="treatment-item">
+                    <h3>Anti-Aging Procedures</h3>
+                    <p>Reduce fine lines, wrinkles, and restore face shape</p>
+                </div>
+                <div class="treatment-item">
+                    <h3>Face Lifting</h3>
+                    <p>Best treatment to lift and enhance facial features</p>
+                </div>
+                <div class="treatment-item">
+                    <h3>Laser Hair Removal</h3>
+                    <p>Permanent reduction and minimal regrowth</p>
+                </div>
+                <div class="treatment-item">
+                    <h3>Chemical Peel</h3>
+                    <p>Effective and cost-effective for various skin problems</p>
+                </div>
+                <div class="treatment-item">
+                    <h3>Mesotherapy</h3>
+                    <p>Skin rejuvenation and hair fall prevention</p>
+                </div>
+                <div class="treatment-item">
+                    <h3>Exosomes Therapy</h3>
+                    <p>Advanced benefits for skin and hair health</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="why-choose-content">
+            <h2>Why Choose DOT CLINICS?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Expert Specialists</h3>
+                    <p>Board-certified skin specialists and aesthetic physicians with years of experience</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💎</div>
+                    <h3>Advanced Technology</h3>
+                    <p>State-of-the-art equipment and latest treatment techniques</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Personalized Care</h3>
+                    <p>Customized treatment plans tailored to your unique needs</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>Proven Results</h3>
+                    <p>Thousands of satisfied patients with transformative outcomes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2>Get In Touch</h2>
+            <p>Ready to transform your appearance? Book your consultation today!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <strong>Location</strong>
+                    <span>Multan, Pakistan</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📞</div>
+                    <strong>Call Us</strong>
+                    <span>Contact for appointment</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">🌐</div>
+                    <strong>Website</strong>
+                    <span>www.dotclinics.pk</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#treatments">Treatments</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>&copy; 2025 DOT CLINICS. All rights reserved. | Premier Skin, Hair & Aesthetic Care in Multan, Pakistan</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .treatment-item, .feature').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
